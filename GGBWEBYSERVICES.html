@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGB.WEB</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #FFD700;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Aumentar tamaño de los embeds del principio */
+        #loginForm.embed, #registerForm.embed {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 40px; /* Aumentar el padding */
+            margin-bottom: 30px; /* Aumentar el margen inferior */
+            box-shadow: 0 0 20px #FFD700; /* Aumentar sombra */
+            max-width: 700px; /* Aumentar ancho máximo */
+            margin-left: auto; /* Centrar horizontalmente */
+            margin-right: auto; /* Centrar horizontalmente */
+        }
+        .embed {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px #FFD700;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700;
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            background-color: #000;
+            color: #FFD700;
+            font-size: 18px;
+        }
+        button {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #FFD700;
+            color: #000;
+        }
+        .profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .profile {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #FFD700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #FFD700;
+        }
+        .profile:hover {
+            box-shadow: 0 0 15px #FFD700;
+            transform: translateY(-5px);
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #FFD700;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #FFD700;
+        }
+        #loginForm, #registerForm, #mainContent {
+            display: none;
+        }
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .service-list li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .service-list li:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: scale(1.05);
+        }
+        .neon-text {
+            color: #FFD700;
+            text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700;
+        }
+        .auth-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            background-color: #000000;
+            color: rgb(251, 255, 0);
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="neon-text">Welcome To GGB</h1>
+        
+        <div id="loginForm" class="embed auth-form">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Create Account</a></p>
+        </div>
+
+        <div id="registerForm" class="embed auth-form">
+            <h2>Create Account</h2>
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+        <div id="mainContent" style="display:none;">
+            <div class="embed">
+                <h2 class="neon-text">(Gang Gang Bruski) GGB Members:</h2>
+                <div class="profiles">
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1237455410697474129/d19835e9b8674a802021bcd82249c719.webp?size=1024&animated=true&width=0&height=256" alt="Javieela">
+                        <h3>Javieela</h3>
+                        <button onclick="window.location.href='https://guns.lol/javielaa'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1243225738887434276/db4884d037f8d5b92ef30a9614c8bf49.webp?size=1024&animated=true&width=0&height=256" alt="Fentanilo">
+                        <h3>Fentanilo</h3>
+                        <button onclick="window.location.href='https://guns.lol/fentanilo'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1153632263381209119/a_1d573e628c6dff2d42dcf859a6538140.gif?size=1024&width=0&height=256" alt=".Laeyenn">
+                        <h3><div class=""></div>Laeyenn</h3>
+                        <button onclick="window.location.href='https://fakecrime.bio/laeyen'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1111704614497161337/318af00d3bc993eafe9a6a828580ad77.webp?size=1024&animated=true&width=0&height=256" alt="Stryker">
+                        <h3>Stryker</h3>
+                        <button onclick="window.location.href='https://discord.gg/shooterspvp'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/742439211000660149/3beea6c780c6cbcec82e224a1faa59f1.webp?size=1024&animated=true&width=0&height=256" alt="Anfox">
+                        <h3>Anfox</h3>
+                        <button onclick="window.location.href='https://guns.lol/anfox'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1235711014553649263/1734816f43c92d2070300f0175884d90.webp?size=1024&animated=true&width=0&height=256" alt="Linkyy">
+                        <h3>Linkyy</h3>
+                        <button onclick="window.location.href='https://guns.lol/linkyyyyyyyyy'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/663688494362787840/b92e1d3544252e24fc76ec2aa84d6221.webp?size=1024&animated=true&width=0&height=256" alt="Jarvis">
+                        <h3>Jarvis</h3>
+                        <button onclick="window.location.href='https://guns.lol/gamex'">View Profile</button>
+                    </div>
+                    <div class="profile">
+                        <img src="https://cdn.discordapp.com/avatars/1013542837750616225/79e8c26736a046d12c19e9537fc2c3ec.webp?size=1024&animated=true&width=0&height=256" alt="Salva13a">
+                        <h3>Salva13a</h3>
+                        <button onclick="window.location.href='https://guns.lol/salva13a'">View Profile</button>
+                    </div>
+                </div>
+            </div>
+
+                <h3 class="neon-text">Our Services:</h3>
+                <ul class="service-list">
+                    <li>🌟 Vendemos Bases de Servidores Para RP/PVP</li>
+                    <li>🚀 Tiramos Servidores o Los Jodemos Segun Las Peticiones De Los Usuarios</li>
+                    <li>🎭 Modificamos Bases De Servidores A 5e</li>
+                    <li>🧠 Hacemos Tools Gratis A Las Usuarios Que Abran Ticket Pidiendolo</li>
+                    <li>💼 Hacemos Triggers O Natives De Fivem (DEPENDE DE CUAL LO HACEMOS GRATIS O NO) </li>
+                    <li>🛒 Contact: https://discord.gg/YQR4jK56ye</li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+            <footer class="footer embed">
+                <h2 class="neon-text">About GGB</h2>
+                <p> SPAIN / Gang Gang Bruski (GGB) es una comunidad en la que ofrecemos los siguientes servicios en los que los descubriras si inicias sesion o te creas una cuenta, Disfruta De Nuestra Comunidad ATT; Javieela / Freshico</p>
+                <p> ENG   / Gang Gang Bruski (GGB) is a community in which we offer the following services in which you will discover them if you log in or create an account, Enjoy our ATT community; Javieela / Freshico ... <p> 
+            </footer>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+        }
+
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('mainContent').style.display = 'none';
+        }
+
+        function showMainContent() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Retrieve stored credentials
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            if (username === storedUsername && password === storedPassword) {
+                showMainContent();
+            } else {
+                showNotification("Inicio de sesion invalido, prueba con otra contraseña o nombre de usuario");
+            }
+        }
+
+        function register() {
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (username && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    // Store the credentials in localStorage
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+
+                    showNotification("Registration successful!");
+                    showLogin(); // Show the login form after registration
+                } else {
+                    showNotification("Passwords do not match");
+                }
+            } else {
+                showNotification("Please fill in all fields");
+            }
+        }
+
+        // Show login form by default
+        showLogin();
+    </script>
+</body>
+</html>
